@@ -1,0 +1,21 @@
+@font-face {
+    font-family: "blair";
+	src: url("../fonts/blair.eot") format("eot");
+	src: url("../fonts/blair.ttf") format("truetype"),url("../fonts/blair.svg") format("svg");
+}
+
+@font-face {
+    font-family: "trajan";
+	src: url("../fonts/TrajanPro-Bold.otf") format("opentype");
+	src: url('../fonts/TrajanPro-Bold.eot');
+}
+@font-face {
+    font-family: "ProximaNova";
+	src: url("../fonts/ProximaNova-Light.otf") format("opentype");
+}
+@font-face {
+    font-family: "HelveticaNeue Light";
+	src: url("../fonts/HelveticaNeue-Light.eot") format("eot");
+	src: url("../fonts/HelveticaNeue-Light.otf") format("opentype");
+	src: url("../fonts/HelveticaNeue-Light.ttf") format("truetype");
+}
