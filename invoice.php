@@ -169,7 +169,14 @@ require('assets/core/database.php');
 							$query = "INSERT INTO `invoice` (`BookingID`,`AddtionalCharges`,`RoomRate`,`TotalNumberOfNights`,`TotalCharges`) VALUES ('$bookingID','$addtionalCharges','$roomRate','$days','$totalCharges')";
 							
 							if(mysqli_query($db,$query)){
-								echo "Success!";
+								$query1 = "UPDATE `booking` SET `Status` = 'Invoiced' WHERE `BookingID` = '$bookingID'";
+								if(mysqli_query($db,$query)){
+									$query2 = "UPDATE `room` SET `Status` = 'Empty' WHERE `RoomID` = '".$booking['RoomID']."'";
+									if(mysqli_query($db,$query2)){
+										echo "Success!";
+										echo '<script>window.location = "invoice.php?action=view&BookingID='.$bookingID.'"</script>';
+									}
+								}
 							}else{
 								echo "<div class=\"error\">There was an error with database communication!</div>";
 							}
@@ -250,16 +257,19 @@ require('assets/core/database.php');
 											<td>&nbsp </td>
 											<td><?php echo $booking['PaymentMethod']; ?></td>
 										</tr>
-										<?php if($booking['PaymentMethod'] == 'Credit Card'){ ?>
+										<?php
+										if($booking['PaymentMethod'] == 'Credit Card'){
+										$pme = json_decode($booking['PaymentAdditionalInfo'],true);
+										?>
 										<tr>
 											<td class="s-table-header">Card Number </td>
 											<td>&nbsp </td>
-											<td><?php echo $booking['PaymentMethod']; ?></td>
+											<td><?php echo $mpe['CreditCardNumber']; ?></td>
 										</tr>
 										<tr>
-											<td class="s-table-header">Status </td>
+											<td class="s-table-header">Card Type </td>
 											<td>&nbsp </td>
-											<td><?php echo $booking['PaymentMethod']; ?></td>
+											<td><?php echo $booking['CreditCardType']; ?></td>
 										</tr>
 										
 										<?php } ?>

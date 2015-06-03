@@ -118,6 +118,7 @@ require('assets/core/database.php');
 											$query2 = "UPDATE `Booking` SET `RoomID` = '$roomID', `Status` = 'Checked In' WHERE `BookingID` = '$bookingID'";
 											if(mysqli_query($db,$query2)){
 												echo "Success!";
+												echo "<script>window.location = 'booking-view.php'</script>";
 											}
 										}
 									}

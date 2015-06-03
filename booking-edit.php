@@ -273,7 +273,7 @@ require('assets/core/database.php');
 										</label>
 									</li>
 									<li>
-										<label for="PaymentMethodCredit">
+										<label for="PaymentMethodCreditCard">
 										<div class="image-select-card <?php if($booking['PaymentMethod'] == 'Credit Card'){echo 'image-select-card-selected';} ?>" data-trigger-switch="#credit-card-form">
 											<div class="image-select-image">
 												<i class="fa fa-credit-card"></i>

@@ -116,6 +116,8 @@ require('assets/core/database.php');
 				$booking = mysqli_fetch_assoc($query);
 				$query1 = mysqli_query($db,"SELECT * FROM `guest` WHERE `GuestID` = '".$booking['GuestID']."'");
 				$guest = mysqli_fetch_assoc($query1);
+				$roomq = mysqli_query($db,"SELECT * FROM `room` WHERE `RoomID` = '".$booking['RoomID']."'");
+				$room = mysqli_fetch_assoc($roomq);
 				?>
 				<script>
 				var datatypeTemplate = "";
@@ -195,12 +197,12 @@ require('assets/core/database.php');
 							<tr class="contact-template contact-table datatype-template">
 								<td>Room Rate: </td>
 								<td>&nbsp </td>
-								<td>$ <input type="text" id="rate" name="rate" style="width:auto;" class="number-only" value="0" /><input type="hidden" id="noDays" value="<?php echo $days; ?>"/></td>
+								<td>$ <input type="text" id="rate" name="rate" style="width:auto;" class="number-only" value="<?php echo $room['Rate']; ?>" /><input type="hidden" id="noDays" value="<?php echo $days; ?>"/></td>
 							</tr>
 							<tr>
 								<td>Total Room Cost: </td>
 								<td>&nbsp </td>
-								<td>$<span id="totalRoomCost"></span></td>
+								<td>$<span id="totalRoomCost"><?php echo $room['Rate']*$days; ?></span></td>
 							</tr>
 						</table>
 					</div>
