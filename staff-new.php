@@ -48,14 +48,7 @@
 				</div>
 				
 				<div class="side-menu">
-					<nav class="main-nav list-group panel" id="main-menu">
-						<a href="#" class="list-group-item" data-parent="#main-menu">Dashboard</a>
-						<a href="#meeting-menu" class="list-group-item" data-toggle="collapse"  data-parent="#main-menu">Meeting Plan</a>
-						<div class="collapse" id="meeting-menu">
-							<a href="meeting.php" class="list-group-item list-group-sub-menu" data-parent="#member-menu">View Meeting Plans</a>
-							<a href="meeting.php?action=new" class="list-group-item list-group-sub-menu" data-parent="#member-menu">Create Meeting Plan</a>
-						</div>
-					</nav>
+					<?php include('menu.php'); ?>
 				</div>
 			</div>
 			
